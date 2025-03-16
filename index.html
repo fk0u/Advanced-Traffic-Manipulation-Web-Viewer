@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Traffic Manipulation Web Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Navigation Menu with logo and hamburger menu -->
+    <nav class="bg-gray-800">
+        <div class="container mx-auto p-4 flex items-center justify-between">
+            <a href="#" class="text-lg font-bold text-white">Advanced Traffic Manipulation</a>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Logo -->
+    <div class="container mx-auto p-4">
+        
+        <!-- Input URL -->
+        <div class="mb-4">
+            <label for="url" class="block text-sm font-medium mb-2">Enter URL:</label>
+            <input type="text" id="url" class="w-full p-2 rounded bg-gray-800 text-white" placeholder="https://example.com">
+        </div>
+
+        <!-- Input Jumlah Kunjungan -->
+        <div class="mb-4">
+            <label for="visitCount" class="block text-sm font-medium mb-2">Number of Visits:</label>
+            <input type="number" id="visitCount" class="w-full p-2 rounded bg-gray-800 text-white" placeholder="10" min="1">
+        </div>
+
+        <!-- Input Delay -->
+        <div class="mb-4">
+            <label for="delay" class="block text-sm font-medium mb-2">Delay (in milliseconds):</label>
+            <input type="number" id="delay" class="w-full p-2 rounded bg-gray-800 text-white" placeholder="1000" min="0">
+        </div>
+
+        <!-- Tombol Start, Stop, dan Reset -->
+        <div class="mb-4">
+            <button id="startButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                Start
+            </button>
+            <button id="stopButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2" disabled>
+                Stop
+            </button>
+            <button id="resetButton" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ml-2" disabled>
+                Reset
+            </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="mb-4">
+            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                <div id="progressBar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%;"></div>
+            </div>
+            <p id="progressText" class="text-sm mt-1">0% Complete</p>
+        </div>
+
+        <!-- Preview Website -->
+        <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-4">Website Preview</h2>
+            <iframe id="webPreview" class="w-full h-96 bg-white rounded" src="about:blank"></iframe>
+        </div>
+
+        <!-- Console Log -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Console Log</h2>
+            <div id="consoleLog" class="bg-gray-800 p-4 rounded h-96 overflow-y-auto font-mono text-sm terminal-box">
+                <!-- Logs will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio untuk efek suara -->
+    <audio id="warningSound" src="sounds/warning.mp3"></audio>
+    <audio id="successSound" src="sounds/success.mp3"></audio>
+    <audio id="errorSound" src="sounds/error.mp3"></audio>
+
+    <footer class="text-center text-gray-600 mt-8">
+        <p>&copy; 2025 - Advanced Traffic Manipulation by KOU</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
